@@ -11,6 +11,34 @@ const routes = {
   '/grafico': GraficoView
 };
 
+// Controle do Menu Hambúrguer Mobile
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+function closeMobileMenu() {
+  if (menuToggle && navMenu) {
+    menuToggle.classList.remove('open');
+    navMenu.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+}
+
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Fecha o menu ao clicar fora dele
+  document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+}
+
 async function router() {
   // Pega o caminho a partir do hash da URL (ex: #/tabela -> /tabela)
   const path = window.location.hash.slice(1) || '/';
@@ -45,6 +73,9 @@ async function router() {
       link.classList.remove('active');
     }
   });
+
+  // 5. Fecha o menu mobile ao navegar
+  closeMobileMenu();
 }
 
 // Ouvintes de evento para navegação e primeiro carregamento
