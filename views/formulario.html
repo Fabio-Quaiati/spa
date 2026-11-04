@@ -1,0 +1,28 @@
+<h1>Formulário de Cadastro</h1>
+<p>Envio de dados com tratamento desacoplado no módulo JS.</p>
+
+<div class="card">
+  <form id="formCadastro">
+    <div class="form-group">
+      <label for="titulo">Título do Item:</label>
+      <input type="text" id="titulo" name="titulo" placeholder="Digite o título..." required />
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoria:</label>
+      <select id="categoria" name="categoria" required>
+        <option value="">Selecione...</option>
+        <option value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+        <option value="infra">Infraestrutura</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="observacoes">Observações:</label>
+      <textarea id="observacoes" name="observacoes" rows="3" placeholder="Informações adicionais..."></textarea>
+    </div>
+
+    <button type="submit" class="btn">Salvar Registro</button>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPA Modular - Vanilla JS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js para o módulo de gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- Menu Superior Fixo -->
+  <header>
+    <div class="brand">App Modular JS</div>
+    <nav>
+      <a href="#/" class="nav-link">Início</a>
+      <a href="#/tabela" class="nav-link">Tabela</a>
+      <a href="#/formulario" class="nav-link">Formulário</a>
+      <a href="#/grafico" class="nav-link">Gráfico</a>
+    </nav>
+  </header>
+
+  <!-- Container onde as views serão injetadas -->
+  <main id="app"></main>
+
+  <!-- Rodapé Fixo -->
+  <footer>
+    <p>&copy; 2026 - SPA Vanilla JS Modular. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script principal importado como módulo ES6 -->
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
