@@ -31,6 +31,14 @@ if (menuToggle && navMenu) {
     menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
+  // Ao selecionar qualquer link do menu, fecha o menu e volta o conteúdo ao topo
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileMenu();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
   // Fecha o menu ao clicar fora dele
   document.addEventListener('click', (e) => {
     if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
